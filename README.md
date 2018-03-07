@@ -1,1 +1,2 @@
-# NetworksCA3
+# Computer Networks CA3
+This is a simple Client - Server chat application. It uses TCP protocol to transport messages from sender to receiver. The application uses JForm for the user interface. To run the project correctly open it in NetBeans or Eclipse and run the Server file first then the Client, if you run the Client first and then the Server you will get the NullPointerException. If using NetBeans click on the Server.java and press Shift + F6 to run it, do the same for the client once the server has started. 
