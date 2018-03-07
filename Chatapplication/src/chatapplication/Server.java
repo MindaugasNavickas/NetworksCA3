@@ -171,21 +171,25 @@ public class Server extends javax.swing.JFrame {
 //            typedInText.setText("");
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {        //method invoked when the send button is clicked
+        java.awt.EventQueue.invokeLater(new Runnable() {        //method invoked when the application is launched.
             public void run() {
                 new Server().setVisible(true);                  //makes the client window visible.
             }
         });
         try {
+
             serverSocket = new ServerSocket(1201);                      //creates server socket and sets the port
             socket = serverSocket.accept();                             //accepts connections to the server using the port 
+
             dtinput = new DataInputStream(socket.getInputStream());     //gets input stream that is later used to display the message sent from the client to the server.
             dtoutput = new DataOutputStream(socket.getOutputStream());  //data output stream sends out the message.
             String msgin = "";                                          //declares the message in variable that is used to display the message in the message window
+
             while (!msgin.equals("exit")) {
                 msgin = dtinput.readUTF();                              //reads the input UTF stream
                 chatBox.setText(chatBox.getText().trim() + "\n Client: " + msgin);    //displays the message sent from the client.
             }
+
         } catch (IOException e) {
             System.out.println(e);
         }

@@ -159,7 +159,7 @@ public class Client extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {    //method invoked when the send button is clicked
+        java.awt.EventQueue.invokeLater(new Runnable() {    //method invoked when the application is launched
             public void run() {
                 new Client().setVisible(true);              //makes the client window visible.       
             }
@@ -170,6 +170,7 @@ public class Client extends javax.swing.JFrame {
             dtinput = new DataInputStream(socket.getInputStream());     //gets input stream that is later used to display the message sent from the server to the client.
             dtoutput = new DataOutputStream(socket.getOutputStream());  //data output stream sends out the message.
             String msgIn = "";                                          //declares the message in variable that is used to display the message in the message window
+
             while (!msgIn.equals("Exit")) {                             //this loop runs till the message is Exit.
                 msgIn = dtinput.readUTF();                              //reads the input stream UTF
                 msgDispField.setText(msgDispField.getText().trim() + "\n Server: " + msgIn);    //displays the message sent from the server.
